@@ -4,37 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Talents - King Moravian Church</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <a class="navbar-brand" href="/">King Moravian Church</a>
-        <ul class="nav-list">
-            <li class="nav-item"><a href="/">Members</a></li>
-            <li class="nav-item"><a href="/manage-members">Manage Members</a></li>
-            <li class="nav-item"><a href="/manage-talents" class="active">Manage Talents</a></li>
-            <li class="nav-item"><a href="/reporting">Reporting</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">King Moravian Church</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Members</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/manage-members">Manage Members</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/manage-talents">Manage Talents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reporting">Reporting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
     <div class="container">
-        <h1>Manage Talents</h1>
-        <form id="addTalentForm">
-            <div class="form-group" style="position: relative;">
-                <label class="form-label">Search by Name or ID</label>
-                <input type="text" class="form-control" id="member_search" required>
-                <div id="member_dropdown" class="dropdown"></div>
+        <div class="card">
+            <div class="card-header">
+                <h1 class="mb-0">Manage Talents</h1>
             </div>
-            <div class="form-group">
-                <label class="form-label">Talents by Category</label>
-                <div id="talentColumns"></div>
+            <div class="card-body">
+                <form id="addTalentForm">
+                    <div class="mb-3 position-relative">
+                        <input type="text" class="form-control" id="member_search" placeholder="Search by Name or ID" required>
+                        <div id="member_dropdown" class="dropdown-menu w-100"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Talents by Category:</label>
+                        <div class="row" id="talentColumns"></div>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="notes" placeholder="Notes (optional)" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add/Update Talents</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label class="form-label">Notes (optional)</label>
-                <textarea class="form-control" id="notes" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Add/Update Talents</button>
-        </form>
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/static/js/manage_talents.js"></script>
 </body>
 </html>

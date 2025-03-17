@@ -46,7 +46,7 @@ function filterMemberDropdown() {
                 document.getElementById('member_search').value = item.textContent;
                 dropdown.style.display = 'none';
                 refreshTalentCheckboxes();
-                refreshTalentNotes();
+		refreshTalentNotes();
             });
             dropdown.appendChild(item);
         });
