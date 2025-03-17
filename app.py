@@ -1,7 +1,15 @@
 from flask import Flask, jsonify, request, render_template
 import pyodbc
 import os
-import dotenv import load_dotenv
+from dotenv import load_dotenv
+
+load_dotenv()
+
+print("DB_DRIVER:", os.getenv('DB_DRIVER'))
+print("DB_SERVER:", os.getenv('DB_SERVER'))
+print("DB_NAME:", os.getenv('DB_NAME'))
+print("DB_USER:", os.getenv('DB_USER'))
+print("DB_PASSWORD:", os.getenv('DB_PASSWORD'))
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
@@ -18,6 +26,18 @@ def get_db_connection():
     except pyodbc.Error as e:
         print(f"Connection failed: {e}")
         raise
+
+@app.route('/test-db')
+def test_db():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT 1")
+        result = cursor.fetchone()
+        conn.close()
+        return jsonify({'status': 'Database connection successful', 'result': result[0]})
+    except Exception as e:
+        return jsonify({'status': 'Database connection failed', 'error': str(e)}), 500
 
 @app.route('/members', methods=['GET'])
 def get_members():
