@@ -1,0 +1,8 @@
+# Ignore specific file
+secret.txt
+
+# Ignore all files with a specific extension
+*.log
+*.env
+
+# Ignore an entire directory

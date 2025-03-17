@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporting - King Moravian Church</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="/">King Moravian Church</a>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="/">Members</a></li>
+            <li class="nav-item"><a href="/manage-members">Manage Members</a></li>
+            <li class="nav-item"><a href="/manage-talents">Manage Talents</a></li>
+            <li class="nav-item"><a href="/reporting" class="active">Reporting</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Reporting</h1>
+        <h2>Search Members by Talents</h2>
+        <form id="talentSearchForm">
+            <div class="form-group">
+                <label class="form-label">Select Talents</label>
+                <div id="talentColumns"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <h2>Results</h2>
+        <div id="filterSummary" style="display: none; margin-bottom: 20px;">
+            <strong>Filtered by Talents:</strong> <span id="selectedTalents"></span>
+        </div>
+        <table class="table" id="resultsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Street Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>ZIP</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button id="printButton" class="btn btn-secondary" style="display: none; margin-top: 20px;">Print Results</button>
+    </div>
+    <script src="/static/js/reporting.js"></script>
+</body>
+</html>

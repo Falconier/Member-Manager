@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Talents - King Moravian Church</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="/">King Moravian Church</a>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="/">Members</a></li>
+            <li class="nav-item"><a href="/manage-members">Manage Members</a></li>
+            <li class="nav-item"><a href="/manage-talents" class="active">Manage Talents</a></li>
+            <li class="nav-item"><a href="/reporting">Reporting</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Manage Talents</h1>
+        <form id="addTalentForm">
+            <div class="form-group" style="position: relative;">
+                <label class="form-label">Search by Name or ID</label>
+                <input type="text" class="form-control" id="member_search" required>
+                <div id="member_dropdown" class="dropdown"></div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Talents by Category</label>
+                <div id="talentColumns"></div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Notes (optional)</label>
+                <textarea class="form-control" id="notes" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add/Update Talents</button>
+        </form>
+    </div>
+    <script src="/static/js/manage_talents.js"></script>
+</body>
+</html>
