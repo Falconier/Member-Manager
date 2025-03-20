@@ -1,5 +1,4 @@
-# Ignore specific file
-secret.txt
+# Ignore specific files
 
 # Ignore all files with a specific extension
 *.log

@@ -28,8 +28,8 @@ function filterMemberDropdown() {
     const searchValue = document.getElementById('member_search').value.toLowerCase();
     const dropdown = document.getElementById('member_dropdown');
     dropdown.innerHTML = '';
-    
-    const filteredMembers = allMembers.filter(member => 
+
+    const filteredMembers = allMembers.filter(member =>
         `${member.first_name} ${member.last_name}`.toLowerCase().includes(searchValue) ||
         member.member_id.toString().includes(searchValue)
     );
@@ -46,7 +46,7 @@ function filterMemberDropdown() {
                 document.getElementById('member_search').value = item.textContent;
                 dropdown.style.display = 'none';
                 refreshTalentCheckboxes();
-		refreshTalentNotes();
+                refreshTalentNotes();
             });
             dropdown.appendChild(item);
         });
@@ -122,7 +122,7 @@ function refreshTalentNotes() {
     }
 }
 
-document.getElementById('addTalentForm').addEventListener('submit', function(e) {
+document.getElementById('addTalentForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const checkedTalents = Array.from(document.querySelectorAll('input[name="talent_ids"]:checked'))
         .map(input => input.value);
@@ -140,13 +140,13 @@ document.getElementById('addTalentForm').addEventListener('submit', function(e) 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(talentData)
     })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-        this.reset();
-        selectedMemberId = null;
-        document.getElementById('member_search').value = '';
-        renderTalentColumns();
-    })
-    .catch(error => console.error('Error updating talents:', error));
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            this.reset();
+            selectedMemberId = null;
+            document.getElementById('member_search').value = '';
+            renderTalentColumns();
+        })
+        .catch(error => console.error('Error updating talents:', error));
 });

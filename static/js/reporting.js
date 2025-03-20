@@ -56,7 +56,7 @@ function searchMembersByTalents(e) {
     e.preventDefault();
     const selectedTalents = Array.from(document.querySelectorAll('input[name="talent_ids"]:checked'))
         .map(input => parseInt(input.value));
-    
+
     if (selectedTalents.length === 0) {
         alert('Please select at least one talent to filter by.');
         return;
@@ -66,19 +66,19 @@ function searchMembersByTalents(e) {
         .filter(talent => selectedTalents.includes(talent.talent_id))
         .map(talent => talent.talent_name)
         .join(', ');
-    
+
     fetch('/members/by-talents', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ talent_ids: selectedTalents })
     })
-    .then(response => response.json())
-    .then(members => {
-        const tbody = document.querySelector('#resultsTable tbody');
-        tbody.innerHTML = '';
-        members.forEach(member => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
+        .then(response => response.json())
+        .then(members => {
+            const tbody = document.querySelector('#resultsTable tbody');
+            tbody.innerHTML = '';
+            members.forEach(member => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
                 <td>${member.member_id}</td>
                 <td>${member.first_name} ${member.last_name}</td>
                 <td>${member.email || ''}</td>
@@ -88,13 +88,13 @@ function searchMembersByTalents(e) {
                 <td>${member.state || ''}</td>
                 <td>${member.zip_code || ''}</td>
             `;
-            tbody.appendChild(row);
-        });
+                tbody.appendChild(row);
+            });
 
-        // Show filter summary and print button
-        document.getElementById('selectedTalents').textContent = talentNames;
-        document.getElementById('filterSummary').style.display = 'block';
-        document.getElementById('printButton').style.display = 'inline-block';
-    })
-    .catch(error => console.error('Error fetching members:', error));
+            // Show filter summary and print button
+            document.getElementById('selectedTalents').textContent = talentNames;
+            document.getElementById('filterSummary').style.display = 'block';
+            document.getElementById('printButton').style.display = 'inline-block';
+        })
+        .catch(error => console.error('Error fetching members:', error));
 }

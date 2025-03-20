@@ -25,8 +25,8 @@ function filterEditMemberDropdown() {
     const searchValue = document.getElementById('edit_member_search').value.toLowerCase();
     const dropdown = document.getElementById('edit_member_dropdown');
     dropdown.innerHTML = '';
-    
-    const filteredMembers = allMembers.filter(member => 
+
+    const filteredMembers = allMembers.filter(member =>
         `${member.first_name} ${member.last_name}`.toLowerCase().includes(searchValue) ||
         member.member_id.toString().includes(searchValue)
     );
@@ -66,7 +66,7 @@ function loadMemberDetails(memberId) {
     }
 }
 
-document.getElementById('addMemberForm').addEventListener('submit', function(e) {
+document.getElementById('addMemberForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const memberIdInput = document.getElementById('member_id').value;
     const member = {
@@ -85,24 +85,24 @@ document.getElementById('addMemberForm').addEventListener('submit', function(e) 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(member)
     })
-    .then(response => {
-        if (!response.ok) {
-            return response.json().then(err => { throw new Error(err.message); });
-        }
-        return response.json();
-    })
-    .then(data => {
-        alert(`Member added with ID: ${data.member_id}`);
-        this.reset();
-        loadMemberDropdown();
-    })
-    .catch(error => {
-        alert(`Error adding member: ${error.message}`);
-        console.error('Error adding member:', error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => { throw new Error(err.message); });
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert(`Member added with ID: ${data.member_id}`);
+            this.reset();
+            loadMemberDropdown();
+        })
+        .catch(error => {
+            alert(`Error adding member: ${error.message}`);
+            console.error('Error adding member:', error);
+        });
 });
 
-document.getElementById('editMemberForm').addEventListener('submit', function(e) {
+document.getElementById('editMemberForm').addEventListener('submit', function (e) {
     e.preventDefault();
     if (!selectedEditMemberId) {
         alert('Please select a member to edit.');
@@ -123,13 +123,13 @@ document.getElementById('editMemberForm').addEventListener('submit', function(e)
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(member)
     })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-        this.reset();
-        selectedEditMemberId = null;
-        document.getElementById('edit_member_search').value = '';
-        loadMemberDropdown();
-    })
-    .catch(error => console.error('Error updating member:', error));
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            this.reset();
+            selectedEditMemberId = null;
+            document.getElementById('edit_member_search').value = '';
+            loadMemberDropdown();
+        })
+        .catch(error => console.error('Error updating member:', error));
 });

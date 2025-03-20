@@ -10,13 +10,17 @@ body {
     background-color: #2c3e50;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-.navbar-brand, .nav-link {
+
+.navbar-brand,
+.nav-link {
     color: #ecf0f1 !important;
     transition: color 0.3s ease;
 }
+
 .nav-link:hover {
     color: #3498db !important;
 }
+
 .nav-link.active {
     color: #3498db !important;
     font-weight: 600;
@@ -36,6 +40,7 @@ body {
     background-color: #fff;
     margin-bottom: 20px;
 }
+
 .card-header {
     background-color: #3498db;
     color: #fff;
@@ -43,6 +48,7 @@ body {
     padding: 15px;
     font-size: 1.25rem;
 }
+
 .card-body {
     padding: 20px;
 }
@@ -55,16 +61,19 @@ body {
     padding: 10px 20px;
     transition: background-color 0.3s ease;
 }
+
 .btn-primary:hover {
     background-color: #2980b9;
     border-color: #2980b9;
 }
+
 .btn-secondary {
     background-color: #7f8c8d;
     border-color: #7f8c8d;
     border-radius: 5px;
     padding: 10px 20px;
 }
+
 .btn-info {
     background-color: #1abc9c;
     border-color: #1abc9c;
@@ -78,11 +87,14 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
+
 .table thead {
     background-color: #ecf0f1;
     color: #2c3e50;
 }
-.table th, .table td {
+
+.table th,
+.table td {
     padding: 12px;
     vertical-align: middle;
 }
@@ -94,13 +106,15 @@ body {
     padding-bottom: 5px;
     margin-bottom: 15px;
 }
+
 #talentColumns .form-check {
     margin-left: 15px;
     margin-bottom: 10px;
 }
 
 /* Dropdowns */
-#member_dropdown, #edit_member_dropdown {
+#member_dropdown,
+#edit_member_dropdown {
     position: absolute;
     top: 100%;
     left: 0;
@@ -112,35 +126,49 @@ body {
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-#member_dropdown .dropdown-item:hover, #edit_member_dropdown .dropdown-item:hover {
+
+#member_dropdown .dropdown-item:hover,
+#edit_member_dropdown .dropdown-item:hover {
     background-color: #ecf0f1;
 }
 
 /* Print Styles */
 @media print {
-    .navbar, #talentSearchForm, #printButton {
+
+    .navbar,
+    #talentSearchForm,
+    #printButton {
         display: none !important;
     }
-    #filterSummary, #resultsTable {
+
+    #filterSummary,
+    #resultsTable {
         display: block !important;
     }
+
     .container {
         margin: 0;
         padding: 0;
         width: 100%;
     }
-    h1, h2 {
+
+    h1,
+    h2 {
         font-size: 16pt;
         color: #000;
     }
+
     #resultsTable {
         width: 100%;
         border-collapse: collapse;
     }
-    #resultsTable th, #resultsTable td {
+
+    #resultsTable th,
+    #resultsTable td {
         border: 1px solid #000;
         padding: 5px;
     }
+
     #resultsTable thead {
         background-color: #f8f9fa;
     }
